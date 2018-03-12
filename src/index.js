@@ -8,12 +8,17 @@ function domElemntsGenerator(){
     const components = {};
     domElements.forEach((el) => {
         components[el] = (styles = {}) => {
-            Object.keys(styles).forEach((style) => {
-                if (!stylesKeyManager[style]) {
-                    
+            Object.keys(styles).forEach((styleKey) => {
+                if (!stylesKeyManager[styleKey]) {
+                    stylesKeyManager[styleKey] = {};
+                    stylesKeyManager[styleKey][styles[styleKey]] = randomString();
+                } else {
+                    if (!stylesKeyManager[styleKey][styles[styleKey]]) {
+                        stylesKeyManager[styleKey][styles[styleKey]] = randomString();
+                    }
                 }
             });
-            
+            console.log(stylesKeyManager);
             return ({ ...props, children }) => React.createElement(el, props, children);
         };
     });
