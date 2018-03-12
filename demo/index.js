@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import domElemntsGenerator from '../src/index';
+import Noori from '../src/index';
 
-const elements = domElemntsGenerator();
+const elements = Noori();
 const Title = elements.h1({
     color: 'red',
-    fontSize: 10
+    'font-size': 10
 });
 
 const Title2 = elements.h1({
