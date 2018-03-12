@@ -4,7 +4,8 @@ import domElemntsGenerator from '../src/index';
 
 const elements = domElemntsGenerator();
 const Title = elements.h1({
-    color: 'red'
+    color: 'red',
+    fontSize: 10
 });
 
 const Title2 = elements.h1({

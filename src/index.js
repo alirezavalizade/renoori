@@ -4,10 +4,11 @@ import randomString from './utils/generateRandomString';
 
 const stylesKeyManager = {};
 
-function domElemntsGenerator(){
+function domElemntsGenerator() {
     const components = {};
     domElements.forEach((el) => {
         components[el] = (styles = {}) => {
+            let classNames = '';
             Object.keys(styles).forEach((styleKey) => {
                 if (!stylesKeyManager[styleKey]) {
                     stylesKeyManager[styleKey] = {};
@@ -17,9 +18,10 @@ function domElemntsGenerator(){
                         stylesKeyManager[styleKey][styles[styleKey]] = randomString();
                     }
                 }
+                classNames = `${classNames} ${stylesKeyManager[styleKey][styles[styleKey]]}`; 
             });
             console.log(stylesKeyManager);
-            return ({ ...props, children }) => React.createElement(el, props, children);
+            return ({ ...props, children }) => React.createElement(el,{ ...props, className: classNames }, children);
         };
     });
     return components;
