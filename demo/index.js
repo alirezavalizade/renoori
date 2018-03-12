@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import domElemntsGenerator from '../src/index';
 
+const elements = domElemntsGenerator();
+const Title = elements.h1({
+    color: 'red'
+});
 const App = () => (
     <div>
-        <h1></h1>
+        <Title>Hello world !</Title>
     </div>
 );
 
