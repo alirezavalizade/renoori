@@ -1,9 +1,11 @@
 import randomString from './generateRandomString';
-import css from './css';
+import { createTagStyle } from './styleTags';
+import addCSSRule from './addCSSRule';
 
 class stylesKeyManagerClass {
     keys = {};
-
+    el = createTagStyle();
+    
     get getKeys() {
         return this.keys;
     }
@@ -13,7 +15,7 @@ class stylesKeyManagerClass {
             this.keys[key] = {};
         }
         this.keys[key][subKey] = value;
-        css();
+        addCSSRule(this.el, `.${value}`, `${key}: ${subKey}`);
     }
 
     manageStyles(styles = {}) {

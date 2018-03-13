@@ -5,12 +5,12 @@ import addCSSRule from './addCSSRule';
 
 export default function css() {
     const el = createTagStyle();
-    const selectorTexts = Object.keys(el.sheet.cssRules).map(sheetKey => el.sheet.cssRules[sheetKey].selectorText);
+    const cssTexts = Object.keys(el.sheet.cssRules).map(sheetKey => el.sheet.cssRules[sheetKey].cssText);
     Object.keys(stylesKeyManager.getKeys)
         .forEach((key) => {
             Object.keys(stylesKeyManager.getKeys[key])
                 .forEach((subKey) => {
-                    if (selectorTexts.indexOf(`.${stylesKeyManager.getKeys[key][subKey]}`) === -1) {
+                    if (cssTexts.indexOf(`.${stylesKeyManager.getKeys[key][subKey]}`) === -1) {
                         addCSSRule(el, `.${stylesKeyManager.getKeys[key][subKey]}`, `${key}: ${subKey}`);
                     }
             });

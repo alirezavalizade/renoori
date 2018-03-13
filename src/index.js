@@ -3,7 +3,7 @@ import domElements from './utils/domElements';
 import css from './utils/css';
 import stylesKeyManager from './utils/stylesKeyManager';
 
-function domElemntsGenerator() {
+export default (() => {
     const components = {};
     domElements.forEach((el) => {
         components[el] = (styles = {}) => {
@@ -12,6 +12,4 @@ function domElemntsGenerator() {
         };
     });
     return components;
-}
-
-export default domElemntsGenerator();
+})();
