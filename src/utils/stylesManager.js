@@ -20,7 +20,6 @@ class stylesManagerClass {
 
     setStylesToKeys(styles = {}) {
         let classNames = '';
-
         Object.keys(styles).forEach((styleKey) => {
             if (!this.getKeys[styleKey]) {
                 this.setKeys(styleKey, styles[styleKey], randomString());
