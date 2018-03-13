@@ -1,13 +1,12 @@
 import React from 'react';
 import domElements from './utils/domElements';
-import css from './utils/css';
-import stylesKeyManager from './utils/stylesKeyManager';
+import stylesManager from './utils/stylesManager';
 
 export default (() => {
     const components = {};
     domElements.forEach((el) => {
         components[el] = (styles = {}) => {
-            const { classNames } = stylesKeyManager.manageStyles(styles);
+            const { classNames } = stylesManager.setStylesToKeys(styles);
             return ({ ...props, children }) => React.createElement(el,{ ...props, className: classNames }, children);
         };
     });
