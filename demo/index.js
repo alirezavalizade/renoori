@@ -6,6 +6,8 @@ const Title = Renoori.h1({
     color: 'red',
     'font-size': 10,
     border: '1px solid red',
+    padding: 10,
+    margin: 100
 });
 
 const Title2 = Renoori.h1({

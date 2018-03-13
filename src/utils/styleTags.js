@@ -11,9 +11,3 @@ export const createTagStyle = () => {
     }
     return el;
 };
-
-export const createBrowserTag = ({ el }) => {
-    const sheet = el.sheet;
-    console.log('sheet' , sheet);
-
-};
