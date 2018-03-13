@@ -43,7 +43,7 @@ class stylesManagerClass {
     
     templateCss() {
         let rules = '';
-        Object.keys(this.el.sheet.cssRules).forEach(item => {
+        Object.keys(this.el.sheet.cssRules).forEach((item) => {
             rules +=
                 `
                 ${this.el.sheet.cssRules[item].cssText}
@@ -53,6 +53,6 @@ class stylesManagerClass {
     }
 }
 
-const stylesKeyManager = new stylesManagerClass();
+const stylesManager = new stylesManagerClass();
 
-export default stylesKeyManager;
+export default stylesManager;
