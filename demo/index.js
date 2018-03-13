@@ -24,7 +24,6 @@ const Title4 = Renoori.h1({
 });
 
 class App extends React.PureComponent {
-
     state = {
         counter: 0
     };

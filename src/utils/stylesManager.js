@@ -16,6 +16,7 @@ class stylesManagerClass {
         }
         this.keys[key][subKey] = value;
         this.setStyleToRule(key, subKey, value);
+        this.setStyleObjectToElement();
     }
 
     setStylesToKeys(styles = {}) {
@@ -34,6 +35,21 @@ class stylesManagerClass {
 
     setStyleToRule(key, subKey, value) {
         addCSSRule(this.el, `.${value}`, `${key}: ${subKey}`);
+    }
+
+    setStyleObjectToElement() {
+        this.el.innerHTML = this.templateCss();
+    };
+    
+    templateCss() {
+        let rules = '';
+        Object.keys(this.el.sheet.cssRules).forEach(item => {
+            rules +=
+                `
+                ${this.el.sheet.cssRules[item].cssText}
+                `;
+        });
+        return rules;
     }
 }
 
